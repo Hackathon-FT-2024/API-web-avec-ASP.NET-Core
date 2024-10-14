@@ -27,4 +27,8 @@ RUN dotnet publish "./TestAPIWeb.csproj" -c $BUILD_CONFIGURATION -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
+# Copier la base de données SQLite dans le conteneur (si vous l'avez en local)
+COPY ./baseRNA.db /app/baseRNA.db
+
 ENTRYPOINT ["dotnet", "TestAPIWeb.dll"]
