@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TestAPIWeb.Data;
 using TestAPIWeb.Models;
@@ -7,6 +8,7 @@ namespace TestAPIWeb.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class AssociationController : ControllerBase
     {
         private readonly AppDbContext _context;
